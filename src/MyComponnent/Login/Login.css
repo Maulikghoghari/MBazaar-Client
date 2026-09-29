@@ -1,0 +1,19 @@
+body {
+  background-color: #ffffff;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+button[type="submit"] {
+  background-color: #1f57f1;
+}
+
+button[type="submit"]:hover {
+  background-color: #1546d1;
+}
+
+.bi-eye, .bi-eye-slash {
+  font-size: 1.1rem;
+}

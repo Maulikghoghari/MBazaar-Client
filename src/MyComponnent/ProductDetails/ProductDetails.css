@@ -1,0 +1,326 @@
+.product-detail .color-dot {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ccc;
+}
+
+.productDetails{
+    background-color: white;
+    padding-top: 20px;
+}
+
+.bg-gold {
+  background-color: #d4af37;
+}
+
+.bg-silver {
+  background-color: #c0c0c0;
+}
+
+.bg-gray {
+  background-color: #999;
+}
+
+.thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.payment-icons img {
+  height: 30px;
+  max-width: 270px;
+}
+
+.product-detail-label{
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+.btn-outline-secondary{
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+.quantity-control button {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  text-align: center;
+}
+
+.quantity-control div {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.add-to-card,.buy-now{
+    width: 50%;
+}
+
+.compare-wishlist a{
+    text-decoration: none;
+    color: black;
+    gap:2px;
+}
+
+
+
+/*  */
+
+
+.image-gallery-container {
+  position: sticky;
+  top: 100px; /* Adjust according to your header */
+  z-index: 1;
+}
+
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  overflow-y: auto;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.thumb {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.thumb.active {
+  border-color: #007bff;
+  transform: scale(1.05);
+}
+
+.main-image-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 1px solid #ddd;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.list-unstyled-icon{
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-right: 2px;
+    font-weight: 700;
+    color: #0077ff;
+}
+
+.waranty a,.return a{
+    font-size: 14px;
+    text-decoration: none;
+
+}
+
+.old-price{
+  text-decoration: line-through;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+*/
+
+.image-gallery-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 400px;
+  width: 15%;
+  overflow-y: auto;
+  gap: 10px;
+}
+
+.thumb {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.thumb.active {
+  border-color: #007bff;
+  transform: scale(1.05);
+}
+
+
+.main-image-container {
+  position: relative;
+  width: 80%;
+  height: 400px;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.customer-review-container{
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.customer-title{
+  font-weight: 700;
+}
+
+
+/* review container  */
+
+.review-container {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.review-container h4 {
+  font-weight: 400;
+}
+
+.rating-title{
+  margin-right: 3px;
+  width: 125px;
+}
+.required {
+  color: red;
+}
+
+.review-form .form-group {
+  margin-bottom: 15px;
+}
+
+.review-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.review-form textarea {
+  resize: vertical;
+}
+
+.review-form .checkbox {
+  width: 5%;
+  height: 10%;
+  margin-top: 5px;
+}
+
+.review-form .checkbox label {
+  margin-left: 5px;
+}
+
+.stars {
+  font-size: 20px;
+  color: #ccc;
+}
+
+.info-text {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.submit-btn {
+  background-color: #0056ff;
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0044cc;
+}

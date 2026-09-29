@@ -1,0 +1,34 @@
+.our-store{
+    background-color: #1C61E7;
+    color: white;
+    border-radius: 10px;
+}
+
+.convenient-store,.delivery-point,.service-center{
+    background-color: #3371E9;
+    margin-right: 20px;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.convenient-store:hover,.delivery-point:hover,.service-center:hover{
+    background-color: #245bca;
+    cursor: pointer;
+}
+
+.box-img{
+    background-size: cover;
+    background-position: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.our-store-icon{
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.store-service{
+    display: flex;
+}

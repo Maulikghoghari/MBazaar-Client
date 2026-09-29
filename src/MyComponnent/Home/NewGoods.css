@@ -1,0 +1,253 @@
+.noting-phone-text {
+  flex: 1 1 400px;
+  padding-right: 20px;
+  position: absolute;
+  z-index: 200;
+  padding: 40px 40px;
+  color: white;
+  text-align: center;
+}
+
+.noting-phone-text p {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.noting-phone-text h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.noting-phone-text .btn {
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 30px;
+  background-color: #0d6efd;
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.noting-phone-text .btn:hover {
+  background-color: #084298;
+}
+
+.nothing-phone img.nothingImg {
+  flex: 1 1 400px;
+  max-width: 300px;
+  margin-top: 20px;
+  border-radius: 14px;
+}
+
+.offer-card {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #1c1c1e;
+}
+
+.more-products-btn {
+  background-color: #e5edff;
+  color: #0d6efd;
+  border: none;
+  padding: 8px 20px 10px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.more-products-btn span {
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+.more-products-btn:hover {
+  background-color: #d6e4ff;
+  color: #084298;
+}
+
+
+.hover-icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2;
+}
+
+
+.offer-card:hover .hover-icons {
+  display: flex;
+}
+
+.icon-btn {
+  background: white;
+  padding: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.sku-section {
+  transition: all 0.3s ease;
+}
+
+.card-title {
+  font-size: 15px;
+}
+
+.badge-container {
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  z-index: 2;
+  /* Ensure it's above card content */
+}
+
+.badge {
+  color: white;
+  border-radius: 10px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: gray;
+  /* fallback */
+  white-space: nowrap;
+}
+
+.card-btn {
+  font-size: 12px;
+  width: 100%;
+}
+
+.new-goods .card-wrapper {
+  flex: 0 0 23%;
+  max-width: 23%;
+  box-sizing: border-box;
+  background-color: white;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  padding: 6px;
+  position: relative;
+}
+
+.img-indicators {
+  margin-bottom: 10px;
+}
+
+.new-goods-card-img {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.new-goods-card-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  /* ensures image fits within box without distortion */
+  transition: all 0.3s ease-in-out;
+}
+
+
+@media (max-width: 1200px) {
+  .new-goods .card-wrapper {
+    flex: 0 0 32%;
+    max-width: 33.33%;
+  }
+}
+
+@media(max-width:1024px) {
+  .new-goods-card {
+    flex-wrap: wrap;
+    display: flex;
+  }
+}
+
+@media (max-width:992px) {
+  :where(.css-dev-only-do-not-override-1rfzxih).ant-rate {
+    font-size: 14px;
+  }
+
+  .nothing-phone {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .new-goods .card-wrapper {
+    flex: 0 0 47%;
+    max-width: 48%;
+  }
+
+  .nothing-phone {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .noting-phone-text {
+    padding-right: 0;
+  }
+
+  .noting-phone-text h1 {
+    font-size: 28px;
+  }
+
+  .nothing-phone img.nothingImg {
+    margin-top: 20px;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .card-title {
+    font-size: 13px;
+  }
+
+  .text-muted {
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width:360px) {
+  .card-title {
+    font-size: 12px;
+  }
+
+  .badge {
+    font-size: 10px;
+  }
+
+
+  .badge-1 {
+    padding: 2px 8px;
+    font-size: 12px;
+    margin: 6px 0 0 8px;
+  }
+
+  .badge-2 {
+    padding: 2px 7px;
+    font-size: 12px;
+    margin: 34px 0 0 8px;
+  }
+}
+

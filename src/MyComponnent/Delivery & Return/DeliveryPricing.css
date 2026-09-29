@@ -1,0 +1,19 @@
+.card-header {
+  font-size: 1rem;
+}
+
+.list-group-item span {
+  font-weight: 500;
+}
+
+.list-group-flush li{
+    opacity: 0.7;
+}
+
+.large-item{
+    font-size: 24px;
+}
+
+.small-item{
+    font-size: 22px;
+}

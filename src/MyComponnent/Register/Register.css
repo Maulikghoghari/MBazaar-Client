@@ -1,0 +1,20 @@
+body {
+  background-color: #f8f8f8;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+button[type="submit"] {
+  background-color: #1f57f1;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  background-color: #1546d1;
+}
+
+.bi-eye {
+  cursor: pointer;
+}

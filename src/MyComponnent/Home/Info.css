@@ -1,0 +1,36 @@
+.info-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 100%;
+  margin: 40px auto;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.info-card h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.info-card p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.read-more-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #f6f6f6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #222;
+  transition: 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background: #e2e2e2;
+}

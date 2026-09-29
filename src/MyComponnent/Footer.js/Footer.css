@@ -1,0 +1,90 @@
+.footer {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 50px 0 30px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-logo{
+  width:85%;
+  background-size: cover;
+  background-position: cover;
+}
+
+.footer a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #000000;
+  text-decoration: underline;
+  color: #1e63ff;
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+.footer-text {
+  padding-top: 15px;
+  font-size: 15px;
+  opacity: 0.6;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  font-size: 14px;
+  color: #999;
+}
+
+.list-unstyled li{
+    opacity: 0.6;
+    padding: 4px 0px;
+}
+
+.footer-icon{
+  font-size: 26px;
+  margin-right:10px;
+}
+
+.facebook{
+  color: blue;
+}
+
+.insta{
+  color: rgb(150, 0, 92);
+}
+
+.youtube{
+  color:red;
+}
+
+.app{
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+@media(max-width:768px){
+  .footer-logo{
+    width:45%;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  .payment-img img{
+    width: 150px;
+  }
+}

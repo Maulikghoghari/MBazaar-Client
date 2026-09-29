@@ -1,0 +1,155 @@
+.shopping-event-title{
+  font-size: 54px;
+  font-weight: 600;
+  padding-top: 15px;
+}
+
+.shopping-event-desc{
+  font-size: 22px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.shopping-event-timer div {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 70px;
+  border-radius: 6px;
+  padding: 6px 20px;
+  text-align: center;
+  min-width: 50px;
+}
+
+.shopping-event-timer span {
+  display: block;
+  font-size: 1rem;
+}
+
+.shopping-event-timer strong {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.shopping-event-img{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: cover;
+}
+
+.shopping-event-button{
+  padding: 5px 25px 7px;
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+
+.shopping-event{
+    margin-top: 80px;
+    background-image: url("../Img/Shopping-event-background.jpg");
+    background-position: cover;
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+
+.slick-prev::before,
+.slick-next::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Optional: Clean default arrow buttons */
+.slick-prev,
+.slick-next {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+
+.slick-prev {
+  left: -25px !important;
+}
+.slick-next {
+  right: -25px !important;
+}
+
+
+/* slider */
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center;
+  padding: 0px;
+}
+
+.shopping-event-product-card {
+  display: flex !important;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.shopping-event-product-img {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+}
+
+.shopping-event-card-text{
+  padding-left: 10px;
+}
+
+.product-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 8px 0;
+  color: #333;
+}
+
+.product-rating {
+  margin: 5px 0;
+}
+
+.product-price {
+  color: #0066ff;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+@media (max-width:992px){
+.slick-slider {
+  display: none;
+}
+.shopping-event-title {
+    font-size: 34px;
+    font-weight: 600;
+    padding-top: 15px;
+}
+.shopping-event-desc{
+    font-size: 15px;
+}
+
+}
+
+@media (max-width:767px){
+  .shopping-event-description{
+    text-align: center;
+  }
+  .shopping-event-timer{
+    justify-content: center;
+  }
+}

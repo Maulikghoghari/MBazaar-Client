@@ -1,0 +1,16 @@
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-inner {
+  border:2px solid #000000;
+  padding: 0px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.1s ease;
+}
+
+
