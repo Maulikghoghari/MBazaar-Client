@@ -91,17 +91,6 @@ const Sidebar = ({ isVisible, setIsSidebarVisible }) => {
   ];
 
 
-  const handleMouseEnter = () => {
-    if (window.innerWidth > 576) setIsSidebarVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    if (window.innerWidth > 576) {
-      setIsSidebarVisible(false);
-      setShowMainCategories(true);
-    }
-  };
-
   const [hoveredIndex, setHoveredIndex] = React.useState(null);
 
   const handleSubmenuClick = (mainCategory, subItem) => {

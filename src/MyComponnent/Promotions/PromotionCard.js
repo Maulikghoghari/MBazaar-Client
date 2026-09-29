@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./PromotionCard.css";
 import img1 from '../Img/Promotion-1.webp'
 import img2 from '../Img/Promotion-2.webp'

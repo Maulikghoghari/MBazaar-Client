@@ -5,17 +5,15 @@ import { RiSearchLine } from "react-icons/ri";
 import { IoHeartOutline } from "react-icons/io5";
 import { FaShoppingCart } from 'react-icons/fa';
 import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishlist } from '../redux/wishlistSlice';
-import { ToastContainer, toast, Flip } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 function RelatedProducts() {
   const dispatch = useDispatch();
   const wishlistItems = useSelector(state => state.wishlist.wishlistItems);
-  const history = useHistory();
   const [hoverIndexes, setHoverIndexes] = useState({});
   const [data, setdata] = useState([
     {
