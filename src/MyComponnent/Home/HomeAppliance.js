@@ -5,12 +5,14 @@ import { Rate } from 'antd';
 import { RiSearchLine } from "react-icons/ri";
 import { IoHeartOutline } from "react-icons/io5";
 import { FaShoppingCart } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishlist } from '../redux/wishlistSlice';
 import { toast } from 'react-toastify';
 
 function HomeAppliance() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const wishlistItems = useSelector(state => state.wishlist.wishlistItems);
   const [hoverIndexes, setHoverIndexes] = useState({});

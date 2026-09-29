@@ -12,14 +12,13 @@ import CustomerReview from './CustomerReview';
 import RelatedProducts from './RelatedProducts';
 import { useParams } from 'react-router-dom';
 import { addToCart } from '../redux/cartSlice';
-import { useSelector, useDispatch } from 'react-redux';
-import { ToastContainer, toast, Flip } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
-  const [color, setColor] = useState('');
   const [processor, setProcessor] = useState('');
   const [ram, setRam] = useState('');
   const [storage, setStorage] = useState('');
