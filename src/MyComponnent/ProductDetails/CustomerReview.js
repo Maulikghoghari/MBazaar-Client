@@ -13,7 +13,7 @@ function CustomerReview({ productId }) {
       const token = localStorage.getItem("token");
       console.log("Current Product ID:", productId);
 
-      const res = await axios.get(`http://localhost:4001/reviewsget/${productId}`, {
+      const res = await axios.get(`https://m-bazaar-server.vercel.app/reviewsget/${productId}`, {
         headers: { token }
       });
 
