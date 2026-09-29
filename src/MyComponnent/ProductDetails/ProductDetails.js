@@ -19,6 +19,7 @@ import { toast } from 'react-toastify';
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
+  const [color, setColor] = useState('gold');
   const [processor, setProcessor] = useState('');
   const [ram, setRam] = useState('');
   const [storage, setStorage] = useState('');
@@ -133,12 +134,12 @@ const ProductDetail = () => {
               </div>
 
               {/* Color Options */}
-              <div className="mb-3 d-flex">
-                <label className='product-detail-label'><strong>Color:</strong></label>
-                <div className="d-flex gap-2 mt-1">
-                  <span className="color-dot bg-gold" onClick={() => setColor('gold')} />
-                  <span className="color-dot bg-silver" onClick={() => setColor('silver')} />
-                  <span className="color-dot bg-gray" onClick={() => setColor('gray')} />
+              <div className="mb-3 d-flex align-items-center">
+                <label className='product-detail-label'><strong>Color:</strong> {color && <span className="text-muted ms-1 text-capitalize">({color})</span>}</label>
+                <div className="d-flex gap-2 ms-2">
+                  <span className={`color-dot bg-gold ${color === 'gold' ? 'active' : ''}`} onClick={() => setColor('gold')} />
+                  <span className={`color-dot bg-silver ${color === 'silver' ? 'active' : ''}`} onClick={() => setColor('silver')} />
+                  <span className={`color-dot bg-gray ${color === 'gray' ? 'active' : ''}`} onClick={() => setColor('gray')} />
                 </div>
               </div>
 
