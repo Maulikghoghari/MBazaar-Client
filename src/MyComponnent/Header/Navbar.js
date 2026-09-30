@@ -12,6 +12,7 @@ import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { Form as BootstrapForm } from 'react-bootstrap';
 import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CiLogout } from "react-icons/ci";
@@ -200,7 +201,7 @@ function Navbar1({ setIsSidebarVisible, name, }) {
                         initialValues={{ email: '', password: '', remember: false }}
                         validationSchema={validationSchema}
                         onSubmit={(values, { setSubmitting }) => {
-                          axios.post('http://localhost:4001/login', values)
+                          axios.post(`${API_BASE_URL}/login`, values)
                             .then(function (response) {
                               console.log("Login response:", response.data);
 
@@ -312,7 +313,7 @@ function Navbar1({ setIsSidebarVisible, name, }) {
                                   <div className="row g-0 align-items-center">
                                     <div className="col-auto">
                                       <img
-                                        src={`http://localhost:4001/images/${encodeURIComponent(item.category)}/${item.mainImage}`}
+                                        src={`${API_BASE_URL}/images/${encodeURIComponent(item.category)}/${item.mainImage}`}
                                         alt="Product"
                                         width="80"
                                         height="80"

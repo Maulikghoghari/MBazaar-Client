@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 import './Admin.css';
 import { Form, Button, Container, Row, Col, Table, Spinner, Image } from 'react-bootstrap';
 import { Formik } from 'formik';
@@ -66,7 +67,7 @@ const AdminManageProduct = ({ basePath = '/server' }) => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:4001/admin/product-findall');
+      const res = await axios.get(`${API_BASE_URL}/admin/product-findall`);
       setProducts(res.data.data || []);
     } catch (err) {
       console.error('Fetch error:', err);
@@ -97,7 +98,7 @@ const AdminManageProduct = ({ basePath = '/server' }) => {
       subImage3: product.subImage3 || null
     });
 
-    const baseUrl = `http://localhost:4001/images/${product.category}`;
+    const baseUrl = `${API_BASE_URL}/images/${product.category}`;
     setPreviews({
       mainImage: product.mainImage ? `${baseUrl}/${product.mainImage}` : null,
       subImage1: product.subImage1 ? `${baseUrl}/${product.subImage1}` : null,
@@ -112,7 +113,7 @@ const AdminManageProduct = ({ basePath = '/server' }) => {
     if (id) {
       const fetchById = async () => {
         try {
-          const res = await axios.get(`http://localhost:4001/admin/product-findone?id=${id}`);
+          const res = await axios.get(`${API_BASE_URL}/admin/product-findone?id=${id}`);
           const product = res.data.data;
           if (Array.isArray(product) && product.length > 0) {
             handleEdit(product[0]);
@@ -130,7 +131,7 @@ const AdminManageProduct = ({ basePath = '/server' }) => {
   const handleDelete = async (prodId) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        await axios.delete(`http://localhost:4001/admin/product-delete?id=${prodId}`);
+        await axios.delete(`${API_BASE_URL}/admin/product-delete?id=${prodId}`);
         fetchProducts();
       } catch (err) {
         console.error('Error deleting product:', err);
@@ -185,10 +186,10 @@ const AdminManageProduct = ({ basePath = '/server' }) => {
 
     try {
       if (editingProduct) {
-        await axios.put(`http://localhost:4001/admin/product-update?id=${editingProduct._id}`, data);
+        await axios.put(`${API_BASE_URL}/admin/product-update?id=${editingProduct._id}`, data);
         alert('Product updated successfully!');
       } else {
-        await axios.post('http://localhost:4001/admin/product-add', data);
+        await axios.post(`${API_BASE_URL}/admin/product-add`, data);
         alert('Product added successfully!');
       }
 

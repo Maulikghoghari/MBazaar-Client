@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Table, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import { API_BASE_URL } from '../../config';
 import './Admin.css';
 
 const AdminUsers = ({ basePath = '/server' }) => {
@@ -12,7 +13,7 @@ const AdminUsers = ({ basePath = '/server' }) => {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:4001/admin/user-findall');
+      const res = await axios.get(`${API_BASE_URL}/admin/user-findall`);
       setUsers(res.data.data || []);
     } catch (err) {
       console.error('Error fetching users:', err);

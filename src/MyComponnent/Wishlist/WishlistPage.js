@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromWishlist } from '../redux/wishlistSlice'; // adjust path
 import { useHistory } from 'react-router-dom';
+import { API_BASE_URL } from '../../config';
 import './WishlistPage.css';
 
 const WishlistPage = () => {
@@ -30,7 +31,7 @@ const WishlistPage = () => {
         {wishlistItems.map((item) => (
           <div key={item._id} className="wishlist-card">
             <img
-              src={`http://localhost:4001/images/${item.category}/${item.mainImage}`}
+              src={`${API_BASE_URL}/images/${item.category}/${item.mainImage}`}
               alt={item.title}
               className="wishlist-img"
             />

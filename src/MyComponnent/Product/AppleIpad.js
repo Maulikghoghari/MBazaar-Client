@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 import noProduct from '../Img/noProduct.png';
 import { Pagination } from 'antd';
 import './Product.css';
@@ -47,7 +48,7 @@ function AppleIpad() {
     const applyPriceFilter = () => {
         const token = localStorage.getItem("token");
 
-        axios.get('http://localhost:4001/admin/product-findall', {
+        axios.get(`${API_BASE_URL}/admin/product-findall`, {
             headers: { token: token }
         })
             .then((response) => {
@@ -266,7 +267,7 @@ function AppleIpad() {
                                                                 >
                                                                     <div className="Product-card-img">
                                                                         <img
-                                                                            src={`http://localhost:4001/images/${product.category}/${currentImage}`}
+                                                                            src={`${API_BASE_URL}/images/${product.category}/${currentImage}`}
                                                                             className="card-img-top"
                                                                             alt={product.title}
                                                                         />

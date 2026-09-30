@@ -5,6 +5,7 @@ import { FaRegEye } from "react-icons/fa";
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import * as Yup from 'yup';
+import { API_BASE_URL } from '../../config';
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -34,7 +35,7 @@ function Register() {
             }}
             validationSchema={validationSchema}
             onSubmit={async (values) => {
-              axios.post('http://localhost:4001/signup', values)
+              axios.post(`${API_BASE_URL}/signup`, values)
                 .then(function (response) {
                   console.log(response);
                   localStorage.setItem("token", response.data.token);

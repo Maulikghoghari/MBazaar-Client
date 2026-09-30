@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Container, Row, Col, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import { API_BASE_URL } from '../../config';
 import './Admin.css';
 
 const AdminHome = ({ basePath = '/server' }) => {
@@ -13,7 +14,7 @@ const AdminHome = ({ basePath = '/server' }) => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:4001/admin/product-findall');
+      const res = await axios.get(`${API_BASE_URL}/admin/product-findall`);
       setProducts(res.data.data || []);
     } catch (err) {
       console.error('Error fetching products:', err);
@@ -82,10 +83,10 @@ const AdminHome = ({ basePath = '/server' }) => {
             <Row>
               {groupedByCategory[category].map((item, i) => {
                 const imageList = [
-                  item.mainImage ? `http://localhost:4001/images/${item.category}/${item.mainImage}` : null,
-                  item.subImage1 ? `http://localhost:4001/images/${item.category}/${item.subImage1}` : null,
-                  item.subImage2 ? `http://localhost:4001/images/${item.category}/${item.subImage2}` : null,
-                  item.subImage3 ? `http://localhost:4001/images/${item.category}/${item.subImage3}` : null,
+                  item.mainImage ? `${API_BASE_URL}/images/${item.category}/${item.mainImage}` : null,
+                  item.subImage1 ? `${API_BASE_URL}/images/${item.category}/${item.subImage1}` : null,
+                  item.subImage2 ? `${API_BASE_URL}/images/${item.category}/${item.subImage2}` : null,
+                  item.subImage3 ? `${API_BASE_URL}/images/${item.category}/${item.subImage3}` : null,
                 ].filter(Boolean);
 
                 const currentImage = imageList[hoverIndexes[item._id] ?? 0] || imageList[0];

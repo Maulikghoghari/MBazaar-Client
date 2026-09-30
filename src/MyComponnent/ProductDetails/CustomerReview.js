@@ -3,6 +3,7 @@ import Rating from '@mui/material/Rating';
 import { Progress } from 'antd';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 
 function CustomerReview({ productId }) {
   const [reviews, setReviews] = useState([]);
@@ -13,7 +14,7 @@ function CustomerReview({ productId }) {
       const token = localStorage.getItem("token");
       console.log("Current Product ID:", productId);
 
-      const res = await axios.get(`https://m-bazaar-server.vercel.app/reviewsget/${productId}`, {
+      const res = await axios.get(`${API_BASE_URL}/reviewsget/${productId}`, {
         headers: { token }
       });
 
@@ -92,7 +93,7 @@ function CustomerReview({ productId }) {
 
                   try {
                     const response = await axios.post(
-                      `http://localhost:4001/reviewsadd/${productId}`,
+                      `${API_BASE_URL}/reviewsadd/${productId}`,
                       dataToSend,
                       {
                         headers: { token: token }

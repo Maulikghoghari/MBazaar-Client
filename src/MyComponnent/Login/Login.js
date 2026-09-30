@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { FaRegEye } from "react-icons/fa";
 import axios from 'axios';
 import * as Yup from 'yup';
+import { API_BASE_URL } from '../../config';
 
 function Login() {
 
@@ -28,7 +29,7 @@ function Login() {
             initialValues={{ email: '', password: '', remember: false }}
             validationSchema={validationSchema}
             onSubmit={async (values) => {
-              axios.post('http://localhost:4001/login', values)
+              axios.post(`${API_BASE_URL}/login`, values)
                 .then(function (response) {
                   console.log(response);
                   localStorage.setItem("token", response.data.token);

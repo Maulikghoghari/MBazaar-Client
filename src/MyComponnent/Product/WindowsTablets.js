@@ -12,6 +12,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishlist } from '../redux/wishlistSlice'; 
+import { API_BASE_URL } from '../../config';
 
 function WindowsTablets() {
    const dispatch = useDispatch();
@@ -47,7 +48,7 @@ function WindowsTablets() {
   const applyPriceFilter = () => {
     const token = localStorage.getItem("token");
 
-    axios.get('http://localhost:4001/admin/product-findall', {
+    axios.get(`${API_BASE_URL}/admin/product-findall`, {
       headers: { token: token }
     })
       .then((response) => {
@@ -268,7 +269,7 @@ function WindowsTablets() {
                                 >
                                   <div className="Product-card-img">
                                     <img
-                                      src={`http://localhost:4001/images/${product.category}/${currentImage}`}
+                                      src={`${API_BASE_URL}/images/${product.category}/${currentImage}`}
                                       className="card-img-top"
                                       alt={product.title}
                                     />

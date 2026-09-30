@@ -14,6 +14,7 @@ import { useParams } from 'react-router-dom';
 import { addToCart } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../../config';
 
 
 
@@ -31,7 +32,7 @@ const ProductDetail = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:4001/product/${id}`)
+    fetch(`${API_BASE_URL}/product/${id}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Failed to fetch product');

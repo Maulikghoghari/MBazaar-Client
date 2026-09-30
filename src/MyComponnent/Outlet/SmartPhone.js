@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishlist } from '../redux/wishlistSlice';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../../config';
 
 const SmartPhone = () => {
   const history = useHistory();
@@ -44,7 +45,7 @@ const SmartPhone = () => {
   const getdata = () => {
     const token = localStorage.getItem("token");
 
-    axios.get('http://localhost:4001/admin/product-findall', {
+    axios.get(`${API_BASE_URL}/admin/product-findall`, {
       headers: { token: token }
     })
       .then((response) => {
@@ -135,7 +136,7 @@ const SmartPhone = () => {
                   >
                     <div className="best-offer-card-img">
                       <img
-                        src={`http://localhost:4001/images/${product.category}/${currentImage}`}
+                        src={`${API_BASE_URL}/images/${product.category}/${currentImage}`}
                         alt={product.title}
                         className="card-img-top"
                       />
