@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Card, Container, Row, Col, Spinner } from 'react-bootstrap';
+import { Container, Spinner, Table } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { API_BASE_URL } from '../../config';
 import './Admin.css';
@@ -9,7 +9,6 @@ const AdminHome = ({ basePath = '/server' }) => {
   const history = useHistory();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [hoverIndexes, setHoverIndexes] = useState({});
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -32,10 +31,6 @@ const AdminHome = ({ basePath = '/server' }) => {
     acc[cat].push(product);
     return acc;
   }, {});
-
-  const handleImageHover = (productId, index) => {
-    setHoverIndexes((prev) => ({ ...prev, [productId]: index }));
-  };
 
   return (
     <Container className="admin-container">
@@ -78,118 +73,86 @@ const AdminHome = ({ basePath = '/server' }) => {
         </div>
       ) : (
         Object.keys(groupedByCategory).map((category, idx) => (
-          <div key={idx} className="admin-category-block">
-            <h3 className="admin-category-title">{category} ({groupedByCategory[category].length})</h3>
-            <Row>
-              {groupedByCategory[category].map((item, i) => {
-                const imageList = [
-                  item.mainImage ? `${API_BASE_URL}/images/${item.category}/${item.mainImage}` : null,
-                  item.subImage1 ? `${API_BASE_URL}/images/${item.category}/${item.subImage1}` : null,
-                  item.subImage2 ? `${API_BASE_URL}/images/${item.category}/${item.subImage2}` : null,
-                  item.subImage3 ? `${API_BASE_URL}/images/${item.category}/${item.subImage3}` : null,
-                ].filter(Boolean);
-
-                const currentImage = imageList[hoverIndexes[item._id] ?? 0] || imageList[0];
-
-                return (
-                  <Col key={item._id || i} md={4} lg={3} className="mb-4">
-                    <Card
-                      className="h-100 admin-product-card position-relative"
-                      onMouseLeave={() => {
-                        setHoverIndexes((prev) => ({ ...prev, [item._id]: 0 }));
-                      }}
-                    >
-                      {item.isnew && (
-                        <span className="badge bg-success position-absolute top-0 start-0 m-2">
-                          New
-                        </span>
-                      )}
-                      {item.hot && (
-                        <span className="badge bg-danger position-absolute top-0 end-0 m-2">
-                          Hot
-                        </span>
-                      )}
-                      {item.bestOffer && (
-                        <span className="badge bg-warning text-dark position-absolute bottom-0 end-0 m-2">
-                          Best
-                        </span>
-                      )}
-
-                      <div className="admin-card-img-container">
-                        {currentImage ? (
-                          <img
-                            src={currentImage}
-                            alt={item.title}
-                            className="admin-card-img"
-                            onError={(e) => {
-                              e.target.onerror = null;
-                              e.target.src = 'https://via.placeholder.com/200?text=No+Image';
-                            }}
-                          />
-                        ) : (
-                          <div className="text-muted d-flex align-items-center justify-content-center h-100">
-                            No Image
-                          </div>
-                        )}
-
-                        {imageList.length > 1 && (
-                          <div className="admin-img-indicators">
-                            {imageList.map((_, dotIdx) => (
-                              <div
-                                key={dotIdx}
-                                className={`admin-img-dot ${
-                                  (hoverIndexes[item._id] ?? 0) === dotIdx ? 'active' : ''
-                                }`}
-                                onMouseEnter={() => handleImageHover(item._id, dotIdx)}
-                              />
-                            ))}
-                          </div>
-                        )}
-                      </div>
-
-                      <Card.Body className="d-flex flex-column justify-content-between">
-                        <div>
-                          <Card.Title className="fs-6 fw-bold mb-1 text-truncate" title={item.title}>
-                            {item.title}
-                          </Card.Title>
-                          <div className="mb-2">
-                            <span
-                              className="badge"
-                              style={{
-                                backgroundColor: item.instock ? '#d1e7dd' : '#f8d7da',
-                                color: item.instock ? '#0f5132' : '#842029',
+          <div key={idx} className="admin-category-block mb-5">
+            <h3 className="admin-category-title mb-3">{category} ({groupedByCategory[category].length})</h3>
+            <Table striped bordered hover responsive className="admin-product-table align-middle bg-white">
+              <thead className="table-light">
+                <tr>
+                  <th style={{ width: '80px' }}>Image</th>
+                  <th>Title</th>
+                  <th>Status</th>
+                  <th>Price</th>
+                  <th>Discount</th>
+                  <th>Badges</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {groupedByCategory[category].map((item, i) => {
+                  const mainImage = item.mainImage ? `${API_BASE_URL}/images/${item.category}/${item.mainImage}` : null;
+                  
+                  return (
+                    <tr key={item._id || i}>
+                      <td>
+                        <div className="admin-table-img-container rounded overflow-hidden" style={{ width: '50px', height: '50px', backgroundColor: '#f8f9fa', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          {mainImage ? (
+                            <img
+                              src={mainImage}
+                              alt={item.title}
+                              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                              onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = 'https://via.placeholder.com/50?text=No+Image';
                               }}
-                            >
-                              {item.instock ? 'In Stock' : 'Out of Stock'}
-                            </span>
-                          </div>
-                          <div>
-                            <strong className="text-primary fs-5">₹{item.price}</strong>{' '}
-                            {item.oldprice && (
-                              <span className="text-muted text-decoration-line-through ms-2">
-                                ₹{item.oldprice}
-                              </span>
-                            )}
-                            {item.discount && (
-                              <span className="text-success ms-2 fw-semibold">
-                                {item.discount}% off
-                              </span>
-                            )}
-                          </div>
+                            />
+                          ) : (
+                            <small className="text-muted" style={{ fontSize: '0.65rem' }}>No Img</small>
+                          )}
                         </div>
-
+                      </td>
+                      <td className="fw-bold">{item.title}</td>
+                      <td>
+                        <span
+                          className="badge"
+                          style={{
+                            backgroundColor: item.instock ? '#d1e7dd' : '#f8d7da',
+                            color: item.instock ? '#0f5132' : '#842029',
+                          }}
+                        >
+                          {item.instock ? 'In Stock' : 'Out of Stock'}
+                        </span>
+                      </td>
+                      <td>
+                        <strong className="text-primary">₹{item.price}</strong>
+                        {item.oldprice && (
+                          <div className="text-muted text-decoration-line-through" style={{ fontSize: '0.85em' }}>
+                            ₹{item.oldprice}
+                          </div>
+                        )}
+                      </td>
+                      <td>
+                        {item.discount ? <span className="text-success fw-semibold">{item.discount}% off</span> : <span className="text-muted">-</span>}
+                      </td>
+                      <td>
+                        <div className="d-flex gap-1 flex-wrap">
+                          {item.isnew && <span className="badge bg-success">New</span>}
+                          {item.hot && <span className="badge bg-danger">Hot</span>}
+                          {item.bestOffer && <span className="badge bg-warning text-dark">Best</span>}
+                        </div>
+                      </td>
+                      <td>
                         <button
-                          className="btn btn-outline-primary btn-sm w-100 mt-3"
+                          className="btn btn-outline-primary btn-sm"
                           onClick={() => history.push(`${basePath}/edit-product/${item._id}`)}
                         >
-                          Edit Product
+                          Edit
                         </button>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                );
-              })}
-            </Row>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
           </div>
         ))
       )}
