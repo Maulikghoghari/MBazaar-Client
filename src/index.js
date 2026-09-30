@@ -5,6 +5,35 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './MyComponnent/redux/Store';
+import axios from 'axios';
+
+// --- Axios Request Deduplication Patch ---
+// This prevents multiple components from firing the same API request simultaneously
+const originalGet = axios.get;
+let productPromise = null;
+let lastFetch = 0;
+
+axios.get = function(url, config) {
+  if (url && url.includes('/product-findall')) {
+    // If request is made within 5 seconds of the last one, return the pending/cached promise
+    if (productPromise && (Date.now() - lastFetch < 5000)) {
+      return productPromise;
+    }
+    
+    productPromise = originalGet.call(axios, url, config);
+    lastFetch = Date.now();
+    
+    // Clear on error so it can be retried
+    productPromise.catch(() => {
+      productPromise = null;
+      lastFetch = 0;
+    });
+    
+    return productPromise;
+  }
+  return originalGet.call(axios, url, config);
+};
+// ------------------------------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
