@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import './Admin.css';
 
 const AdminLogin = ({ onLoginSuccess, basePath = '/server' }) => {
-  const [email, setEmail] = useState('admin@gmail.com');
-  const [password, setPassword] = useState('admin@123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const history = useHistory();
@@ -35,12 +35,6 @@ const AdminLogin = ({ onLoginSuccess, basePath = '/server' }) => {
           <span className="admin-login-badge">M-Bazaar Control Panel</span>
           <h2>Admin Sign In</h2>
           <p>Enter your administrator credentials to access the admin panel.</p>
-        </div>
-
-        <div className="admin-demo-creds">
-          <div className="fw-bold mb-1">Default Admin Credentials:</div>
-          <div>Email: <code>admin@gmail.com</code></div>
-          <div>Password: <code>admin@123</code></div>
         </div>
 
         {error && <Alert variant="danger">{error}</Alert>}
